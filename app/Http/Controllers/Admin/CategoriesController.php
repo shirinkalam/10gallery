@@ -15,11 +15,14 @@ class CategoriesController extends Controller
         return view('admin.categories.create');
     }
 
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
+
+        $validatedData = $request->validated();
+
         $cratedCategory = Category::create([
-            'title' =>"$request->title",
-            'slug'=>"$request->slug"
+            'title' =>$validatedData['title'],
+            'slug'=>$validatedData['slug']
         ]);
 
         if(!$cratedCategory){
