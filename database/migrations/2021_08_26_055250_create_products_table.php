@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateProductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->char('title');
             $table->text('description');
-            $table->char('thumbnail_url');
-            $table->char('demo_url');
-            $table->char('source_url');
+            $table->char('thumbnail_url')->nullable();
+            $table->char('demo_url')->nullable();
+            $table->char('source_url')->nullable();
             $table->unsignedInteger('price');
 
             $table->unsignedBigInteger('category_id');
@@ -27,6 +27,7 @@ return new class extends Migration
 
             $table->unsignedBigInteger('owner_id');
             $table->foreign('owner_id')->references('id')->on('users')->onDelete('cascade');
+
 
             $table->timestamps();
         });
@@ -41,4 +42,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('products');
     }
-};
+}

@@ -51,15 +51,15 @@ class CategoriesController extends Controller
     {
         $category = Category::find($category_id);
 
-        return view('admin.categories.edit', compact('category'));
-    } 
+        return view('admin.categories.editt', compact('category'));
+    }
 
     public function update(UpdateRequest $request,$category_id)
     {
         $validatedData = $request->validated();
 
         $category = Category::find($category_id);
-        
+
         $updatedCategory = $category->update([
             'title' => $validatedData['title'],
             'slug' => $validatedData['slug'],

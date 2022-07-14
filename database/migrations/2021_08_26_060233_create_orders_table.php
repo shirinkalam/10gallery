@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateOrdersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
 
             $table->unsignedInteger('amount');
-            $table->char('ref_code',128)->nullable();
-            $table->enum('status',['unpaid' , 'paid' ]);
-
+            $table->char('ref_code', 128)->nullable();
+            $table->enum('status', ['unpaid', 'paid']);
+            
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
@@ -36,4 +36,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('orders');
     }
-};
+}
