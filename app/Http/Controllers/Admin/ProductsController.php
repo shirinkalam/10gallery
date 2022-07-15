@@ -64,4 +64,24 @@ class ProductsController extends Controller
             return back()->with('failed', $e->getMessage());
         }
     }
+
+    public function all()
+    {
+        $products = Product::paginate(10);
+        return view('admin.products.all',compact('products'));
+    }
+
+    public function downloadDemo($product_id)
+    {
+        $product = Product::findOrFail($product_id);
+
+        return response()->download(public_path($product->demo_url));
+    }
+
+    public function downloadSource($product_id)
+    {
+        $product = Product::findOrFail($product_id);
+
+        return response()->download(storage_path('app/local_storage/' . $product->source_url));
+    }
 }
