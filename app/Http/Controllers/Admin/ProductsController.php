@@ -84,4 +84,13 @@ class ProductsController extends Controller
 
         return response()->download(storage_path('app/local_storage/' . $product->source_url));
     }
+
+    public function delete($product_id)
+    {
+        $product = Product::findOrFail($product_id);
+
+        $product->delete();
+
+        return back()->with('success', 'محصول حذف شد');
+    }
 }
