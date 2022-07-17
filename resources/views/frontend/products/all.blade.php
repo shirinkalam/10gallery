@@ -116,7 +116,7 @@
                             </li>
 
                             <li class="p-b-6">
-                                <a href="#" class="filter-link stext-106 trans-04 filter-link-active">
+                                <a href="?filter=orderby&action=newest" class="filter-link stext-106 trans-04 filter-link-active">
                                     جدیدترین
                                 </a>
                             </li>
@@ -154,7 +154,7 @@
 
                     <div class="block2-txt flex-w flex-t p-t-14">
                         <div class="block2-txt-child1 flex-col-l ">
-                            <a href="{{route('home.product.show',$product->id)}}" class="mtext-106 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+                            <a href="{{route('home.products.show',$product->id)}}" class="mtext-106 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
                                 {{ $product->title }}
                             </a>
 

@@ -183,7 +183,7 @@
 
                             <div class="block2-txt flex-w flex-t p-t-14">
                                 <div class="block2-txt-child1 flex-col-l ">
-                                    <a href="{{ route('home.product.show', $simillerProduct->id) }}" class="mtext-106 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+                                    <a href="{{ route('home.products.show', $simillerProduct->id) }}" class="mtext-106 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
                                        {{ $simillerProduct->title }}
                                     </a>
 
