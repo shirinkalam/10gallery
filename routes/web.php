@@ -5,11 +5,15 @@ use App\Http\Controllers\Admin\OrdersController;
 use App\Http\Controllers\Admin\ProductsController;
 use App\Http\Controllers\Admin\PaymentsController;
 use App\Http\Controllers\Admin\UsersController;
+use App\Http\Controllers\Home\ProductsController as HomeProductsController;
+use App\Http\Controllers\Home\HomeController ;
 use Illuminate\Support\Facades\Route;
 
-Route::get('', function(){
-    return view('frontend.products.all');
+Route::prefix('')->group(function (){
+    Route::get('' ,[HomeProductsController::class,'index'])->name('home.products.all');
+    Route::get('{product_id}/show', [HomeProductsController::class, 'show'])->name('home.product.show');
 });
+
 
 Route::prefix('admin')->group(function (){
 
@@ -18,7 +22,7 @@ Route::prefix('admin')->group(function (){
         Route::get('create', [CategoriesController::class, 'create'])->name('admin.categories.create');
         Route::post('', [CategoriesController::class, 'store'])->name('admin.categories.store');
         Route::delete('{category_id}/delete', [CategoriesController::class, 'delete'])->name('admin.categories.delete');
-        Route::get('{category_id}/edit', [CategoriesController::class, 'edit'])->name('admin.categories.editt');
+        Route::get('{category_id}/edit', [CategoriesController::class, 'edit'])->name('admin.categories.edit');
         Route::put('{category_id}/update', [CategoriesController::class, 'update'])->name('admin.categories.update');
     });
 
