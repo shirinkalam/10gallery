@@ -2,7 +2,7 @@
 namespace App\Services\Payment;
 
 use App\Services\Payment\Contracts\RequestInterface;
-use App\Services\Payment\Providers\IDPayProvider;
+use App\Services\Payment\Exceptions\ProviderNotFoundException;
 
 
 class PaymentService
@@ -32,10 +32,4 @@ class PaymentService
          return new $className($this->request);
     }
 }
-// $idPayRequest = new IDPayRequest([
-//     'amount' =>100,
-//     'user' =>$user,
-// ]);
 
-// $paymentService = new PaymentService(PaymentService::IDPAY , $idPayRequest);
-// $paymentService->pay();

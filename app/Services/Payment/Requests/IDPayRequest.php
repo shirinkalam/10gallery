@@ -11,7 +11,7 @@ class IDPayRequest implements RequestInterface
     public function __construct(array $data)
     {
         $this->user = $data['user'];
-        $this->user = $data['amount'];
+        $this->amount = $data['amount'];
     }
 
     public function getUser()

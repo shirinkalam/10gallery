@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Sevices\Payment\Providers;
+namespace App\Services\Payment\Providers;
 
 use App\Services\Payment\Contracts\PaybleInterface;
 use App\Services\Payment\Contracts\VerifaibleInterface;
