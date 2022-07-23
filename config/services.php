@@ -31,7 +31,7 @@ return [
     ],
 
     'gateways'=>[
-        'od_pay'=>[
+        'id_pay'=>[
             'api_key'=>'4dd72d30-ad20-4b14-b42a-49960c6dfa6d',
         ]
     ]
